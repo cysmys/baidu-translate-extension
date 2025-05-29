@@ -1,0 +1,15 @@
+/* styles/vocab_highlight.css */
+.vocab-highlighted-extension {
+    background-color: #fffda4; /* 柠檬绸色，比较柔和的黄色 */
+    color: #333; /* 确保文本颜色与背景对比清晰 */
+    padding: 0 2px;
+    border-radius: 3px;
+    cursor: help;
+    /* 如果需要，可以添加细微的下划线或边框 */
+    /* border-bottom: 1px dotted #888; */
+}
+
+/* 你可以为高亮单词的悬浮状态添加额外样式，但我们主要通过JS控制tooltip */
+/* .vocab-highlighted-extension:hover {
+    background-color: #FFEB3B; 
+} */

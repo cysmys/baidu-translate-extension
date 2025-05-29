@@ -1,0 +1,43 @@
+﻿{
+  "manifest_version": 3,
+  "name": "百度划词翻译",
+  "version": "1.2",
+  "description": "Translates selected text, saves new words, and highlights them on pages with hover translation.",
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting",
+    "tabs" 
+  ],
+  "host_permissions": [
+    "https://api.fanyi.baidu.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "js": ["content.js"],
+      "css": ["styles/content_popup.css", "styles/vocab_highlight.css"],
+      "run_at": "document_idle"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["images/translate_icon.png"],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "action": {
+    "default_title": "Translator Options",
+    "default_popup": "options.html"
+  },
+  "options_page": "options.html",
+  "icons": {
+    "16": "images/translate_icon.png",
+    "48": "images/translate_icon.png",
+    "128": "images/translate_icon.png"
+  }
+}

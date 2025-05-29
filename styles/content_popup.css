@@ -1,0 +1,63 @@
+/* styles/content_popup.css (修改后) */
+.translation-popup-extension {
+    position: absolute;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 6px; /* Slightly more rounded */
+    font-size: 14px;
+    color: #333;
+    z-index: 2147483646; /* Slightly lower than vocab tooltip if they could overlap */
+    box-shadow: 0 3px 12px rgba(0,0,0,0.2);
+    max-width: 320px;
+    line-height: 1.4;
+    
+    /* --- Flexbox for layout --- */
+    display: flex; /* Use flex to layout content and close button */
+    padding: 0; /* Remove global padding, apply to children if needed */
+}
+
+.translation-popup-extension .content-area-extension {
+    flex-grow: 1; /* Allow content to take up available space */
+    padding: 10px 15px; /* Apply padding here */
+    padding-right: 25px; /* Add more padding on the right to make space for an absolutely positioned close button if that's preferred */
+    word-break: break-word;
+}
+
+.translation-popup-extension .close-btn-extension {
+    /* Option 1: Flex item (simpler) */
+    /* Remove position: absolute if using this */
+    /*
+    flex-shrink: 0; 
+    padding: 10px 10px 10px 0; 
+    cursor: pointer;
+    font-size: 20px;
+    line-height: 1; 
+    color: #aaa;
+    align-self: flex-start; 
+    */
+
+    /* Option 2: Absolute positioning (more precise control, but needs careful padding on content) */
+    position: absolute;
+    top: 6px;        /* Adjust as needed */
+    right: 8px;      /* Adjust as needed */
+    cursor: pointer;
+    font-size: 20px; /* Make it a bit larger for easier clicking */
+    line-height: 1;  /* Helps with vertical alignment */
+    color: #aaa;
+    padding: 2px;    /* Small padding for click area */
+    z-index: 1;      /* Ensure it's above the content area if overlapping slightly */
+}
+
+.translation-popup-extension .close-btn-extension:hover {
+    color: #555;
+}
+
+/* For error messages or loading indicators inside content-area */
+.translation-popup-extension .error-message-extension {
+    color: red;
+    font-style: italic;
+}
+.translation-popup-extension .loading-indicator-extension {
+    color: #777;
+    font-style: italic;
+}
